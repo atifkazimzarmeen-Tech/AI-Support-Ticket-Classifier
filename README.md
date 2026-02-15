@@ -52,7 +52,7 @@ AI-Support-Ticket-Classifier/
 
  Installation & Setup
 1️⃣ Clone the Repository
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git clone https://github.com/atifkazimzarmeen-Tech/AI-Support-Ticket-Classifier
 cd YOUR_REPO
 
 2️⃣ Create Virtual Environment
