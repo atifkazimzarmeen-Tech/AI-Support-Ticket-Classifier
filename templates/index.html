@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Support Ticket Auto Tagger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <h1>🎫 Support Ticket Auto Tagger</h1>
+        <p class="subtitle">AI-powered Zero-shot & Few-shot Classification</p>
+
+        <form method="POST">
+            <textarea name="ticket_text" placeholder="Enter your support ticket here...">{{ ticket_text }}</textarea>
+            <button type="submit">🚀 Classify Ticket</button>
+        </form>
+
+        {% if zero_tags %}
+        <div class="results">
+
+            <div class="result-card">
+                <h2>🔵 Zero-Shot Top 3</h2>
+                <ul>
+                    {% for label, score in zero_tags %}
+                        <li>
+                            <span class="tag">{{ label }}</span>
+                            <span class="score">{{ "%.2f"|format(score*100) }}%</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="result-card">
+                <h2>🟣 Few-Shot Top 3</h2>
+                <ul>
+                    {% for label, score in few_tags %}
+                        <li>
+                            <span class="tag">{{ label }}</span>
+                            <span class="score">{{ "%.2f"|format(score*100) }}%</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+</body>
+</html>
